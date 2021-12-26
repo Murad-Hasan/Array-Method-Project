@@ -57,16 +57,16 @@ main {
   padding: 10px 20px;
 }
 
-.UserTitle {
+h2 {
   border-bottom: 1px solid #111;
   padding-bottom: 10px;
   display: flex;
   justify-content: space-between;
   font-weight: 300;
-  margin: 0 20px;
+  margin: 0 10px;
 }
 
-.userList{
+h3 {
   background-color: #fff;
   border-bottom: 1px solid #111;
   padding: 10px;

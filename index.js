@@ -32,6 +32,26 @@ async function getRandomUser() {
 //add new obj to data array
 
 function addData(obj) {
-  data.push(obj)
+  data.push(obj);
+
+  upDateDom();
 }
-console.log(data);
+
+//update dom
+
+function upDateDom(providedData = data) {
+  //clear main div
+  main.innerHTML = "<h2><strong>Person</strong> Assets</h2>";
+  providedData.forEach((item) => {
+    const element = document.createElement("div");
+    element.classList.add("person");
+    element.innerHTML = `<strong>${item.name}</strong> ${formatMoney(
+      item.money
+    )}`;
+    main.appendChild(element);
+  });
+}
+
+function formatMoney(number) {
+  return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
+}
