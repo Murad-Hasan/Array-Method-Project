@@ -66,19 +66,19 @@ h2 {
   margin: 0 10px;
 }
 
+.person {
+  display: flex;
+  justify-content: space-between;
+  margin: 20px 0px;
+  margin: 10px;
+}
+
 h3 {
-  background-color: #fff;
+  background-color: rgb(224, 220, 220);
   border-bottom: 1px solid #111;
   padding: 10px;
   display: flex;
   justify-content: space-between;
   font-weight: 300;
   margin: 20px 0px;
-}
-
-.person {
-  display: flex;
-  justify-content: space-between;
-  margin: 20px 0px;
-  margin: 10px;
 }

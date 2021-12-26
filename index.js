@@ -12,6 +12,9 @@ let data = [];
 // https://randomuser.me/api/
 
 //fetch random user and add money
+
+getRandomUser();
+getRandomUser();
 getRandomUser();
 getRandomUser();
 getRandomUser();
@@ -33,7 +36,25 @@ async function getRandomUser() {
 
 function addData(obj) {
   data.push(obj);
+  upDateDom();
+}
 
+//double money
+function doubleMoney() {
+  data = data.map((item) => {
+    return { ...item, money: item.money * 2 };
+  });
+  upDateDom();
+}
+//show only millionaires
+function showMillionaires() {
+  data = data.filter((item) => item.money > 1000000);
+  upDateDom();
+}
+
+//sort by richest
+function sortByRichest() {
+  data.sort((a, b) => b.money - a.money);
   upDateDom();
 }
 
@@ -52,6 +73,25 @@ function upDateDom(providedData = data) {
   });
 }
 
+//calculate total assets
+function calculateAssets() {
+  const total = data.reduce((acc, item) => acc + item.money, 0);
+  const totalEl = document.createElement("h3");
+  totalEl.innerHTML = `<strong>Total assets: </strong> ${formatMoney(total)}`;
+  main.appendChild(totalEl);
+}
+
+//currency formatter
 function formatMoney(number) {
   return "$" + number.toFixed(2).replace(/\d(?=(\d{3})+\.)/g, "$&,");
 }
+
+console.log(data);
+
+//event listeners
+
+addUserBtn.addEventListener("click", getRandomUser);
+doubleBtn.addEventListener("click", doubleMoney);
+showMillionaireBtn.addEventListener("click", showMillionaires);
+sortBtn.addEventListener("click", sortByRichest);
+calculateAssetBtn.addEventListener("click", calculateAssets);
