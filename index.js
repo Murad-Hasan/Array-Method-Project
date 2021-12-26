@@ -75,7 +75,7 @@ function upDateDom(providedData = data) {
 
 //calculate total assets
 function calculateAssets() {
-  const total = data.reduce((acc, item) => acc + item.money, 0);
+  const total = data.reduce((acc, item) => acc += item.money, 0);
   const totalEl = document.createElement("h3");
   totalEl.innerHTML = `<strong>Total assets: </strong> ${formatMoney(total)}`;
   main.appendChild(totalEl);
